@@ -18,7 +18,6 @@ public class VeiculoService {
         if (modelo == null || modelo.isBlank())
             throw new IllegalArgumentException("Modelo do veículo é obrigatório.");
 
-        // RN: veículo só pode ser cadastrado se o cliente existir
         clienteRepository.buscarPorId(idCliente)
             .orElseThrow(() -> new IllegalArgumentException(
                 "Cliente não encontrado (id=" + idCliente + "). Cadastre o cliente antes do veículo."));
